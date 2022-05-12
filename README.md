@@ -6,6 +6,7 @@ Edu4AI - Artificial Intelligence and Machine Learning to Foster 21st Century Ski
 
 
 # Final result
+![Robot, complete](robot.jpeg)
 
 # Get the parts
 For our project we used the following parts
