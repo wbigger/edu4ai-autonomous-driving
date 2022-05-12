@@ -46,6 +46,102 @@ The chassis is far to be perfect, could be largely improved. We favored simplici
 | GND | 39 | GND |
 GPIO5 GPIO6 GPIO26 GPIO16 GND
 
+# Prepare the SD Card
+We used the official [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/).
+
+We tested the project with:
+- Raspberry Pi OS with desktop
+- Release date: April 4th 2022
+- System: 32-bit
+- Kernel version: 5.15
+- Debian version: 11 (bullseye)
+
+# Set up the Raspberry Pi
+
+Connect a mouse, keyboard and monitor to your Raspberry Pi and power it. Follow configuration and initialisation instructions if any.
+To upgrade the Operating System, open a Terminal window and execute:
+
+```sh
+sudo apt update
+sudo apt -y dist-upgrade
+```
+
+Answer 'yes' to any prompts.
+
+Now we should install VNC (Virtual Network Computing) to access the Robot remotely using our Windows laptop.
+
+Install VNC server on the Raspberry Pi
+
+```sh
+sudo apt-get update
+sudo apt-get install realvnc-vnc-server
+```
+
+Then from the Pi menu enable the VNC by:
+Raspberry Pi Menu->Preferences->Raspberry Pi Configuration->Interface tab->Enable VNC and click OK.
+
+After that you should install a VNC viewer on your Windows laptop; you can download it [here](https://www.realvnc.com/en/connect/download/viewer/).
+
+Get the IP from the Raspberry using:
+
+```sh
+hostname -I
+```
+
+Put this IP into the VNC viewer on your laptop.
+
+
+# Move the motors
+
+```py
+from gpiozero import Robot
+myRobot = Robot(right=(26,16), left=(5,6))
+
+# Argument is the speed, from 0 (stop) to 1 (max speed, default)
+# Leave empty for default
+
+myRobot.forward(0.6)  # go forward
+myRobot.backward(0.6) # go backward
+myRobot.left(0.6) # turn left
+myRobot.right(0.6) # turn right
+```
+
+# Train your model
+Go to [Teachable Machine](https://teachablemachine.withgoogle.com/train).
+
+Use "Standard Image Model"
+
+After training, export as Tensorflow Lite -> Quantized
+
+# Test trained model with your car
+
+Open a terminal on Raspberry Pi and install dependencies.
+
+```sh
+sudo apt-get update
+sudo apt -y install libjpeg-dev libtiff5-dev libjasper-dev libpng-dev
+sudo apt -y install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt -y install libxvidcore-dev libx264-dev
+sudo apt -y install libatlas-base-dev
+
+pip3 install opencv-python
+
+pip3 install tflite-runtime
+
+pip3 install numpy --upgrade
+```
+
+Create a folder on Raspberry, unzip the Tensorflow model and download the [classify_webcam.py](classify_webcam.py) example inside it.
+
+Inside a terminal, test that everything works:
+
+```sh
+python3 classify_webcam.py --model myModel/model.tflite -–labels myModel/labels.txt
+```
+
+
+
+
 
 
 
