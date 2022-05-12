@@ -73,8 +73,8 @@ Now we should install VNC (Virtual Network Computing) to access the Robot remote
 Install VNC server on the Raspberry Pi
 
 ```sh
-sudo apt-get update
-sudo apt-get install realvnc-vnc-server
+sudo apt update
+sudo apt install realvnc-vnc-server
 ```
 
 Then from the Pi menu enable the VNC by:
@@ -118,7 +118,7 @@ After training, export as Tensorflow Lite -> Quantized
 Open a terminal on Raspberry Pi and install dependencies.
 
 ```sh
-sudo apt-get update
+sudo apt update
 sudo apt -y install libjpeg-dev libtiff5-dev libjasper-dev libpng-dev
 sudo apt -y install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt -y install libxvidcore-dev libx264-dev
