@@ -45,7 +45,6 @@ The chassis is far to be perfect, could be largely improved. We favored simplici
 | IN3 | 37 | GPIO26 |
 | IN4 | 36 | GPIO16 |
 | GND | 39 | GND |
-GPIO5 GPIO6 GPIO26 GPIO16 GND
 
 # Prepare the SD Card
 We used the official [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/).
