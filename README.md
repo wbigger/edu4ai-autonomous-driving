@@ -14,7 +14,7 @@ For our project we used the following parts
 - [ ] MicroSD card minimum size 16 GB
 - [ ] Two wheels with rubber tires
 - [ ] L298N Motor Drive Controller
-- [ ] USB 5V power bank
+- [ ] USB 5V power bank, with at least 2.5A power output (USB-C)
 - [ ] 9V battery with clip
 - [ ] USB webcam with hole for tripod
 - [ ] Jumper wires F/F and F/M, to connect everything
