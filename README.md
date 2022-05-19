@@ -6,7 +6,7 @@ Edu4AI - Artificial Intelligence and Machine Learning to Foster 21st Century Ski
 
 
 # Final result
-![Robot, complete](robot.jpeg)
+![Robot, complete](robot.jpg)
 
 # Get the parts
 For our project we used the following parts
@@ -31,6 +31,17 @@ Just as reference, you can see the list part [here](https://www.amazon.it/hz/wis
 
 ## Chassis
 More information on how we created the chassis in the [dedicated page](./chassis).
+
+## Power
+In this project, we use two separated power source:
+- a power bank for the Raspberry PI
+- a 9V battery for motors
+
+We cannot use the Raspberry Pi, since its output are not suitable for supporting loads, so we need an additional power supply, and a 9V battery is a good solution. 
+
+According to [official documentation](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/), we can use a good quality 2.5A power bank to power the board if the downstream USB peripherals consume less than 500mA in total. We have only one peripheral, the webcam, that should stay inside this limit.
+
+
 # L298N <-> Raspberry Pi GPIO pins
 
 | L298N | Raspberry PI GPIO PIN | Raspberry Pi pin description |
@@ -40,6 +51,9 @@ More information on how we created the chassis in the [dedicated page](./chassis
 | IN3 | 37 | GPIO26 |
 | IN4 | 36 | GPIO16 |
 | GND | 39 | GND |
+
+![Robot rear with connections](connections.jpg)
+![Robot top](robot-top.jpg)
 
 # Prepare the SD Card
 We used the official [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/).
@@ -54,6 +68,7 @@ We tested the project with:
 # Set up the Raspberry Pi
 
 Connect a mouse, keyboard and monitor to your Raspberry Pi and power it. Follow configuration and initialisation instructions if any.
+
 To upgrade the Operating System, open a Terminal window and execute:
 
 ```sh
@@ -87,18 +102,24 @@ Put this IP into the VNC viewer on your laptop.
 
 
 # Move the motors
+We are now almost ready to actually move the motors.
+
+On the Raspberry PI, click on the menu on the top right->Programming->Thonny Python IDE.
 
 ```py
 from gpiozero import Robot
 myRobot = Robot(right=(26,16), left=(5,6))
 
-# Argument is the speed, from 0 (stop) to 1 (max speed, default)
-# Leave empty for default
+# Argument is the speed, from 0 (stop) to 1 (max speed, default),
+# leave empty for default.
+# I suggest to start with 0.6, and eventually change it.
+# Use these commands on the intearctive console.
 
 myRobot.forward(0.6)  # go forward
 myRobot.backward(0.6) # go backward
 myRobot.left(0.6) # turn left
 myRobot.right(0.6) # turn right
+myRobot.stop() # turn right
 ```
 
 # Train your model
