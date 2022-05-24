@@ -152,7 +152,7 @@ Create a folder on Raspberry, unzip the Tensorflow model and download the [class
 Inside a terminal, test that everything works:
 
 ```sh
-python3 classify_webcam.py --model myModel/model.tflite -–labels myModel/labels.txt
+python3 classify_webcam.py --model myModel/model.tflite --labels myModel/labels.txt
 ```
 
 
