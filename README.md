@@ -166,8 +166,9 @@ To challenge students in something mesaurable, we drew a path on the floor of th
 
 ![Roads with scotch tape](roads.jpeg)
 
-We used [Duckietown Navigation](https://docs.rs-online.com/e1c9/A700000007310061.pdf) specification to draw the roads. This is not mandatory, since we do not want to participate in Duckietown competitions and we did not follow exactly the standard, but it is useful to have a starting point.
+We used [Duckietown Navigation](https://docs.rs-online.com/e1c9/A700000007310061.pdf) specification to draw the roads. This is not mandatory, since we do not want to participate in Duckietown competitions and we did not follow exactly the standard, but it is useful to have a starting point. In particular, we did not trained AI to follow the lines, but just to recognize traffic signs.
 
+We also used [Duckietown Map-Utils](https://github.com/duckietown/map-utils) repository to generate a random map, but a simple ring in a 3x3 map should be enough to start challenging student in following a path with traffic signs.
 
 
 
