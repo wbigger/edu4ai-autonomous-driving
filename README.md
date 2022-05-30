@@ -129,6 +129,8 @@ Use "Standard Image Model"
 
 After training, export as Tensorflow Lite -> Quantized
 
+We used the [Duckietown Traffic Signs](https://docs.duckietown.org/daffy/opmanual_duckietown/draft/dt_ops_appearance_specifications.html#fig:traffic-signs) to train the model.
+
 # Test trained model with your car
 
 Open a terminal on Raspberry Pi and install dependencies.
@@ -154,6 +156,17 @@ Inside a terminal, test that everything works:
 ```sh
 python3 classify_webcam.py --model myModel/model.tflite -–labels myModel/labels.txt
 ```
+
+With this script, without any modification, you can immediatly check that image detection works and manually drive the robot using WASD keys. 
+
+However, you need to modify it to actually implement an autonomous driving.
+
+# Follow a path
+To challenge students in something mesaurable, we drew a path on the floor of the laboratory with scotch tape.
+
+![Roads with scotch tape](roads.jpeg)
+
+We used [Duckietown Navigation](https://docs.rs-online.com/e1c9/A700000007310061.pdf) specification to draw the roads. This is not mandatory, since we do not want to participate in Duckietown competitions and we did not follow exactly the standard, but it is useful to have a starting point.
 
 
 
