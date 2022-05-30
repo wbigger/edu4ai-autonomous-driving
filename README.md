@@ -154,7 +154,7 @@ Create a folder on Raspberry, unzip the Tensorflow model and download the [class
 Inside a terminal, test that everything works:
 
 ```sh
-python3 classify_webcam.py --model myModel/model.tflite -–labels myModel/labels.txt
+python3 classify_webcam.py --model myModel/model.tflite --labels myModel/labels.txt
 ```
 
 With this script, without any modification, you can immediatly check that image detection works and manually drive the robot using WASD keys. 
