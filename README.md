@@ -34,10 +34,12 @@ More information on how we created the chassis in the [dedicated page](./chassis
 
 ## Power
 In this project, we use two separated power source:
-- a power bank for the Raspberry PI
-- a 9V battery for motors
+- [ ] a power bank for the Raspberry PI
+- [ ] a 9V battery for motors (rechargable)
 
-We cannot use the Raspberry Pi, since its output are not suitable for supporting loads, so we need an additional power supply, and a 9V battery is a good solution. 
+Note: we cannot use the Raspberry Pi to power motors, since its output are not suitable for supporting loads, so we need an additional power supply, and a 9V battery is a good solution. 
+
+We reccomend rechargable 9V batteries, since common 9V battery would last less than hours, according to our experience (see the shopping list above for details).
 
 According to [official documentation](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/), we can use a good quality 2.5A power bank to power the board if the downstream USB peripherals consume less than 500mA in total. We have only one peripheral, the webcam, that should stay inside this limit.
 
